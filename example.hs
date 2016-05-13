@@ -49,7 +49,7 @@ myEq2 (MyValue a) (MyValue b) = a == b
 -- to `myEq1`. This is ideal (except for using metaprogramming,
 -- but whatevs):
 myEq3 :: Sing a -> MyValue a -> MyValue a -> Bool
-myEq3 x (MyValue a) (MyValue b) = $(enumerateConstructors 'x ''MyType =<< [|a == b|])
+myEq3 x (MyValue a) (MyValue b) = $(enumerateConstructors' 'x ''MyType =<< [|a == b|])
 
 main :: IO ()
 main = putStrLn "Hey"
